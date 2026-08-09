@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#134d8f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>الإعدادات العامة</title>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <header class="app-topbar" id="topbar"></header>
+
+  <main class="page">
+    <h2 style="margin-bottom:16px;">⚙️ الإعدادات العامة</h2>
+
+    <div class="settings-nav">
+      <button data-tab="theme" class="active">المظهر</button>
+      <button data-tab="types">أنواع المقاسات</button>
+      <button data-tab="models">كتالوج النماذج</button>
+      <button data-tab="backup">النسخ الاحتياطي</button>
+    </div>
+
+    <div class="card card-pad settings-panel" id="panel-theme">
+      <div class="theme-switch">
+        <div>
+          <div style="font-weight:800;">الوضع الليلي</div>
+          <div style="font-size:12.5px; color:var(--ink-faint);">يُحفظ اختيارك تلقائياً ويُطبّق على كل الصفحات</div>
+        </div>
+        <button class="switch" id="theme-switch" data-theme-switch></button>
+      </div>
+    </div>
+
+    <div class="card card-pad settings-panel" id="panel-types" style="display:none;">
+      <div style="display:flex; gap:8px; margin-bottom:16px;">
+        <input id="new-type-input" placeholder="اسم نوع جديد (مثال: سحاب درفتين)" style="flex:1; padding:10px 12px; border-radius:8px; border:1px solid var(--line); background:var(--bg-sunken); color:var(--ink);">
+        <button class="btn btn-primary" id="add-type-btn">إضافة</button>
+      </div>
+      <div class="types-list" id="types-list"></div>
+    </div>
+
+    <div class="card card-pad settings-panel" id="panel-models" style="display:none;">
+      <div style="display:flex; justify-content:flex-end; margin-bottom:16px;">
+        <button class="btn btn-primary" id="add-model-btn">+ إضافة نموذج جديد</button>
+      </div>
+      <div class="model-grid" id="models-grid"></div>
+    </div>
+
+    <div class="card card-pad settings-panel" id="panel-backup" style="display:none;">
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <div>
+          <div style="font-weight:800; margin-bottom:6px;">تصدير نسخة احتياطية</div>
+          <div style="font-size:12.5px; color:var(--ink-faint); margin-bottom:10px;">يشمل جميع المشاريع والنماذج والأنواع في ملف JSON واحد</div>
+          <button class="btn btn-outline" id="export-json-btn">⬇️ تنزيل ملف JSON</button>
+        </div>
+        <div style="border-top:1px dashed var(--line); padding-top:18px;">
+          <div style="font-weight:800; margin-bottom:6px;">استيراد نسخة احتياطية</div>
+          <div style="font-size:12.5px; color:var(--ink-faint); margin-bottom:10px;">استرجاع أو دمج البيانات من ملف JSON محفوظ مسبقاً</div>
+          <label class="btn btn-outline" style="display:inline-flex;">
+            ⬆️ اختيار ملف JSON
+            <input id="import-json-input" type="file" accept="application/json" style="display:none;">
+          </label>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+▶ Get an installable Android APK in 3 steps:
+
+ 1. Create an empty GitHub repo.
+ 2. Push this folder to it (git init && git add. && git commit -m init && git push).
+ 3. Open the repo's Actions tab — wait ~5 min — download the APK artifact.
+
+Full guide: android/README.md
+Local build (needs JDK 17 + Android SDK): bash scripts/build-apk.sh
